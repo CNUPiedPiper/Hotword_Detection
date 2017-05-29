@@ -26,3 +26,7 @@ pcm.!default {
 ```
 $ python2 demo.py haru.pmdl
 ```
+or
+```
+$ python2 hotword_test.py
+```
