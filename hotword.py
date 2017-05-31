@@ -17,8 +17,6 @@ class hotword:
     def start_detection(self, callback_func):
         signal.signal(signal.SIGINT, self.signal_handler)
         self.detector = snowboydecoder.HotwordDetector(self.model, sensitivity=0.5)
-        
-        print('Listening... Press Ctrl+C to exit')
         self.detector.start(detected_callback=callback_func, interrupt_check=self.interrupt_callback, sleep_time=5)
 
     def terminate_detection(self):

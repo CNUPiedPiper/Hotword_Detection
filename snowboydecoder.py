@@ -105,6 +105,8 @@ class HotwordDetector(object):
         self.ring_buffer = RingBuffer(
             self.detector.NumChannels() * self.detector.SampleRate() * 5)
         self.audio = pyaudio.PyAudio()
+
+        ''' default
         self.stream_in = self.audio.open(
             input=True, output=False,
             format=self.audio.get_format_from_width(
@@ -113,6 +115,17 @@ class HotwordDetector(object):
             rate=self.detector.SampleRate(),
             frames_per_buffer=2048,
             stream_callback=audio_callback)
+        '''
+
+        # Haru Setting
+        self.stream_in = self.audio.open(
+            input = True, output = False,
+            format = pyaudio.paInt16,
+            channels = self.detector.NumChannels(),
+            rate = 44100,
+            frames_per_buffer = 8192,
+            stream_callback=audio_callback
+        )
 
 
     def start(self, detected_callback=play_audio_file,

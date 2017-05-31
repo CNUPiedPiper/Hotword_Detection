@@ -6,7 +6,7 @@
 
 
 
-
+import time
 
 from sys import version_info as _swig_python_version_info
 if _swig_python_version_info >= (2, 7, 0):
@@ -116,6 +116,7 @@ class SnowboyDetect(_object):
         return _snowboydetect.SnowboyDetect_Reset(self)
 
     def RunDetection(self, *args):
+        print('Listening... Press Ctrl+C to exit', time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
         return _snowboydetect.SnowboyDetect_RunDetection(self, *args)
 
     def SetSensitivity(self, sensitivity_str):
