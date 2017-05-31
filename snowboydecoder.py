@@ -117,16 +117,13 @@ class HotwordDetector(object):
             stream_callback=audio_callback)
         '''
 
-        # Haru Setting
         self.stream_in = self.audio.open(
-            input = True, output = False,
-            format = pyaudio.paInt16,
-            channels = self.detector.NumChannels(),
-            rate = 44100,
-            frames_per_buffer = 8192,
-            stream_callback=audio_callback
-        )
-
+            input=True, output=False,
+            format=pyaudio.paInt16,
+            channels=self.detector.NumChannels(),
+            rate=44100,
+            frames_per_buffer=8192,
+            stream_callback=audio_callback)
 
     def start(self, detected_callback=play_audio_file,
               interrupt_check=lambda: False,
