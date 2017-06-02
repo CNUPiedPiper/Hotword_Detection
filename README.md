@@ -5,6 +5,7 @@ Hotword detection using Snowboy(based on DNN)
 ### Access Microphone
 ```
 $ sudo apt-get install python-pyaudio python3-pyaudio sox
+$ sudo apt-get install libatlas-base-dev
 $ pip2 install pyaudio
 ```
 ### Change your '~/.asoundrc' file to:
